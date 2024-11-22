@@ -8,7 +8,7 @@ import { serve } from '@hono/node-server';
 
 const app = new Hono();
 
-app.post('/test', testingMiddleWare, typiaValidator('json', validate), async (c) => {
+app.post('/test', testingMiddleWare, async (c) => {
   const data = await c.req.json();
   return c.json({ status: true, data: data });
 });
